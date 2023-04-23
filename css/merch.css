@@ -1,0 +1,545 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  vertical-align: baseline;
+}
+/* Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  color: inherit;
+  font-size: inherit;
+}
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+/* Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: var(--negro);
+  color: var(--blanco);}
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* opcional */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+/* Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+/* Configuramos la tipografía para toda la web */
+body{
+    min-height: 100vh;
+    font-size: 100%;
+    background-image: url(../assets/fondo-counteractt.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Audiowide', cursive;
+}
+
+/*INICIO HEADER*/
+/* Encabezado de la web.
+Establece un color de fondo para el encabezado y diseña la lista desordenada que contiene (`cabecera-ul`) para que sea un
+contenedor flexible con elementos centrados y envueltos. También establece varias propiedades de
+fuente y espaciado para los elementos de la lista (`cabecera-li`) y sus etiquetas de anclaje
+(`cabecera-a`). La propiedad `color` se establece en blanco para todos los elementos dentro del
+encabezado. */
+.cabecera{
+   /*background-color: #00DDFF;*/
+}
+.cabecera-ul{
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 2.5vh;
+    font-weight: 600;
+    gap: 1.25rem;
+    padding-top: 2rem;
+    padding-bottom:4rem;
+    color: white;
+}
+.cabecera-li{
+    /*background-color: #00DDFF;*/
+}
+/* Este código CSS agrega un efecto de transición a la propiedad de transformación de la clase
+`.cabecera-a`, que se aplica a las etiquetas de anclaje dentro de la sección de encabezado de la
+página web. Cuando el usuario pasa el cursor sobre estas etiquetas de anclaje, la propiedad de
+transformación cambia para escalar el elemento en un factor de 1,3, creando un efecto de
+acercamiento. La propiedad de transición garantiza que este cambio se produzca sin problemas durante
+0,2 segundos. */
+.cabecera-a{
+    transition: transform .2s ease;
+}
+.cabecera-a:hover{
+    transform: scale(1.3);
+}
+
+/* Este código CSS diseña las etiquetas de anclaje (` <a>`) dentro de la sección de encabezado de la
+página web.</a> */
+.cabecera-a::after{
+    width: 100%;
+    height: .1875rem;
+    background-color:rgb(255, 76, 27);
+    transform-origin: left;
+    transition: all .4s ease;
+    transition: transform .2s ease;
+}
+.cabecera-a:active{
+    transform: scale(1.3);
+    color: orangered;
+}
+/*@Media para pantallas con un ancho máximo de 900px.
+Cuando el ancho de la pantalla es menor o igual a 900px, el elemento `.cabecera-nav` tendrá su
+ancho establecido en 100% y su propiedad de visualización establecida en ninguno, ocultándolo
+efectivamente de la vista.Esto se use con fines de @Media, para ajustar
+el diseño de la sección del encabezado para pantallas más pequeñas. */
+@media (max-width:900px){
+    .cabecera-nav{
+        width: 100%;
+        display: none;
+    }
+}/*FIN DE LA CABECERA*/
+/*Estilos para el encabezado*/
+
+.Header{
+  /*background-color: aqua;*/
+    
+}
+/*"contenedor"
+Establece el ancho del contenedor al 90 % del ancho de su elemento principal, con un ancho máximo de 75 rem.
+Centra el contenedor horizontalmente usando márgenes automáticos. Finalmente, establece la propiedad de visualización en
+"none", lo que significa que el contenedor no estará visible en la página web. */
+.container{
+    width: 90%;
+    max-width: 75rem;
+    margin: auto;
+    display: none;
+}
+/* @MediA que apunta a pantallas con un ancho máximo de 900px.
+Establece la propiedad de visualización de los elementos con la clase "contenedor" en "block"
+cuando el tamaño de la pantalla es inferior a 900 px. Esta es una técnica de diseño receptivo que
+ajusta el diseño de un sitio web en función del tamaño de la pantalla del usuario. */
+@media (max-width:900px){
+    .container{
+        display: block;
+    }
+}
+/* El código anterior define los estilos CSS para un botón con la clase "btn-menu" y su etiqueta. El
+botón flota hacia la derecha y tiene una altura de línea de 6,25 rem. La etiqueta del botón tiene un
+color blanco, un tamaño de fuente de 1,5625 rem y un puntero de cursor. */
+.btn-menu{
+    float: right;
+    line-height:6.25rem;
+}
+.btn-menu label{
+    color: #fff;
+    font-size: 1.5625rem;
+    cursor: pointer;
+}
+/*Fin de Estilos para el encabezado*/
+
+/*Menù lateral*/
+#btn-menu{
+    display: none;
+}
+/* El código anterior define los estilos CSS para un contenedor de menú que está oculto de forma
+predeterminada y se vuelve visible cuando se marca una casilla de verificación con el ID "btn-menu".
+El contenedor tiene un fondo negro semitransparente que cubre toda la ventana y está
+posicionado en absolut. La propiedad de transición se usa para animar la opacidad y la
+visibilidad del contenedor cuando se vuelve visible. La propiedad z-index garantiza que el
+contenedor aparezca por encima de otros elementos de la página. */
+.container-menu{
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100vh;
+    top: 0;left: 0;
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+}
+#btn-menu:checked ~ .container-menu{
+    opacity: 1;
+    visibility: visible;
+}
+/*"cont-menu"
+Establece el ancho al 100 % con un ancho máximo de 15,625 rem, establece el color de fondo en
+#1c1c1c, establece la altura en 100vh (altura de la ventana), establece la posición en
+relativa, establece un efecto de transición de 500 ms de facilidad y establece la posición inicial
+del elemento para estar fuera de la pantalla a la izquierda usando la propiedad de transformación.
+La propiedad de visualización tiene un display block, lo que significa que el elemento se mostrará
+como un elemento a nivel de bloque. */
+.cont-menu{
+    width: 100%;
+    max-width: 15.625rem;
+    background: #1c1c1c;
+    height: 100vh;
+    position: relative;
+    transition: all 500ms ease;
+    transform: translateX(-100%);
+    display: block;
+}
+/*Cuando se marca la casilla de checked con el ID "btn-menu", el contenedor con la clase "cont-menu" se traduce
+horizontalmente al 0 % mediante la propiedad de transformación. Esto hace que el menú sea visible en la pantalla.
+El elemento "nav" dentro del contenedor "cont-menu" también se traduce verticalmente en
+un 15% usando la propiedad de transformación. Esto mueve los elementos del menú un poco hacia abajo
+para hacerlos más visibles y facilitar la interacción. */
+#btn-menu:checked ~ .container-menu .cont-menu{
+    transform: translateX(0%);
+}
+.cont-menu nav{
+    transform: translateY(15%);
+}
+/* El código anterior define estilos CSS para un menú de navegación en un contenedor con clase
+"cont-menu". Los estilos incluyen mostrar los enlaces como bloques sin subrayar, agregar relleno,
+establecer el color en gris claro y agregar un borde izquierdo transparente que cambia a naranja al
+pasar el mouse. El color del enlace activo se establece en naranja. */
+.cont-menu nav a{
+    display: block;
+    text-decoration: none;
+    padding: 1.25rem;
+    color: #c7c7c7;
+    border-left: .3125rem solid transparent;
+    transition: all 400ms ease;
+}
+.cont-menu nav a:hover{
+    border-left: .3125rem solid rgb(255, 76, 27);;
+    background: #1f1f1f;
+}
+.cont-menu nav a:active{
+    color: orange
+}
+/*Estilos CSS para un contenedor de menú con un elemento de etiqueta. La
+etiqueta se coloca absolutamente en la esquina superior derecha del contenedor y tiene un color
+blanco con un puntero de cursor. La consulta de medios establece que la propiedad de visualización
+del contenedor se bloquee cuando el ancho de la pantalla sea inferior o igual a 980 px. */
+.cont-menu label{
+    position: absolute;
+    right: .3125rem;
+    top: .625rem;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.125rem;
+}
+@media(max-width:980px){
+    .cont-menu{
+        display: block;
+    }
+}
+/*Fin de Menù lateral*/
+/*FIN DEL HEADER*/
+
+/*INICIO DEL MAIN*/
+.Main{
+    /*background-color: blueviolet;*/
+}
+.Main-merch{}
+
+/*Elemento de encabezado con la clase "Merch-h2".
+Establece el ancho al 100%, el color de fondo a un tono de rgb(249, 121, 2) y usa flexbox para centrar el
+texto horizontal y verticalmente. El tamaño de fuente se establece en 8vh, el grosor de fuente en
+600 y el texto se transforma a mayúsculas. El color se establece en transparente, pero se agrega un
+trazo blanco al texto mediante las propiedades -moz-text-stroke-width, -webkit-text-stroke-width y
+-webkit-text-stroke-color. */
+.Merch-h2{
+    width: 100%;
+    background-color: rgb(249, 121, 2);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 8vh;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: transparent;
+    -moz-text-stroke-width: .125rem;
+    -webkit-text-stroke-width: .125rem;
+    -webkit-text-stroke-color: #ffffff;
+}
+
+.Main-columnas{
+    /*background-color: #8A2BE2;*/
+}
+/* El código anterior define una clase CSS llamada "Columnas-wrapper" que configura un diseño de
+cuadrícula con columnas que tienen un ancho mínimo de 28,91 rem y un ancho máximo de 1fr (lo que
+significa que las columnas ocuparán el mismo espacio dentro de la cuadrícula) . Las filas ajustarán
+su altura en función de su contenido, con una altura mínima de 18,75 rem. La propiedad "brecha"
+establece una brecha de 1,25 rem entre las columnas. Esta clase se puede aplicar a un elemento
+contenedor para crear un diseño de cuadrícula con anchos de columna flexibles y alturas de fila
+automáticas. */
+.Columnas-wrapper{
+    display: grid;
+    grid-template-columns:repeat(auto-fill,minmax(28.91rem, 1fr));
+    grid-auto-rows: minmax(18.75rem, auto);
+    gap: 1.25rem;
+}
+@media (max-width:911px){
+    .Columnas-wrapper{
+        flex-direction: column;
+        padding-top: 3.75rem;
+        padding-bottom: 3.75rem;
+    }
+}
+/* El código anterior define los estilos CSS para una sección con la clase "Columnas-section".
+Establece el relleno en 2,5 rem, el ancho en 100 % y la altura mínima en 25 rem. También establece
+la posición en relativa. Además, hay un @Media que se aplica cuando el ancho máximo es
+de 474px, lo que cambia el ancho al 80 %. */
+.Columnas-section{
+    padding: 2.5rem;
+    width: 100%;
+    min-height: 25rem;
+    position: relative;
+}
+@media(max-width:474px){
+    .Columnas-section{
+        width: 80%;
+    }
+}
+/*"Slider-img". Establece la posición en absoluto, la opacidad en 0 y aplica un efecto de animación
+para desvanecerse en la imagen durante 1,4 segundos. También establece el ancho al 100 % y utiliza
+la ruta de recorte para crear una forma de polígono para la imagen. */
+.Slider-img{
+    /*background: orangered;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width:100%;
+    height: auto;
+    animation: fadeIn 1.4s ease;
+    /*background-color: aquamarine;*/
+    display:block;
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+}
+.Slider-img.isActive{
+    opacity: 1;
+}
+.Slider-img:nth-child(1){
+    position: static;
+}
+/*"Slider-btn".
+Establece el ancho, la altura, el relleno, el radio del borde, el color de fondo, la posición y las
+propiedades del cursor del botón. También agrega un efecto de transición al botón cuando se
+transforma. */
+.Slider-btn{
+    width: 2rem;
+    height: 2rem;
+    padding: .5rem;
+    border-radius: 50%;
+    background-color: rgb(249, 121, 2);
+    position: absolute;
+    bottom: 10.75rem;
+    cursor: pointer;
+    transition: transform .5 ease;
+}
+.Slider-btn:hover{
+    transform: scale(.9);
+}
+.Slider-btn:active{
+    transform: scale(1.1);
+}
+/*".next" y ".prev".
+La clase ".next" se coloca a la derecha en un 28 % del ancho de su contenedor, mientras que la clase ".prev" se coloca a la
+izquierda en un 10 % del ancho de su contenedor. Además, hay un @Media que apunta a
+pantallas con un ancho máximo de 414px, que ajusta el posicionamiento de la clase ".prev" para que
+se alinee a la izquierda en un 14 % del ancho de su contenedor. Es probable que estos estilos se
+utilicen para colocar botones o flechas de navegación en una página web o */
+.next{
+    right:28%;
+}
+.prev{
+    left: 10%;
+}
+@media(max-width:414px){
+    .prev{
+        left: 14%;
+    }
+}
+.Slider-svg{}
+/*Columnas-img`
+100 % de su contenedor principal y el alto a automático, lo que significa que mantendrá su relación de aspecto.
+También aplica una animación de aparición gradual con una duración de 1,4 segundos y una función de temporización
+ease. Además, establece la propiedad de visualización en bloque y aplica una ruta de recorte para
+crear una forma de polígono con un borde inclinado en el lado derecho de la imagen. */
+.Columnas-img{
+    width:100%;
+    height: auto;
+    animation: fadeIn 1.4s ease;
+    /*background-color: aquamarine;*/
+    display:block;
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+}
+/*`@keyframes fadeIn`
+Define una animación CSS que aumenta gradualmente la opacidad y aplica un efecto
+de desenfoque a un elemento. La animación comienza con una opacidad del 0 % y un desenfoque de 1,25
+rem, y con un 10 % de opacidad aumenta a 1 y el desenfoque se reduce a 0,625 rem. Esta animación se
+usa en la clase `.Columnas-img` para crear un efecto de aparición gradual cuando se carga la imagen. */
+@keyframes fadeIn{
+    0% {
+        opacity: 0;
+        filter: blur(1.25rem);
+    }
+    10%{
+        opacity: 1;
+        filter: brightness(2) blur(.625rem);
+    }
+}
+/*"Columnas-h3".
+Esta clase establece el color del texto en blanco, usa flexbox para alinear horizontalmente los elementos, agrega un espacio de 1,25
+rem entre los elementos y agrega relleno en la parte superior de 1,875 rem. También está agregando
+un margen de 7 rem a la derecha del elemento. */
+.Columnas-h3{
+    color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    padding:  1.875rem 0 0;
+    margin-right: 7rem;
+}
+/* El código anterior define una clase CSS llamada "Columnas-span". Esta clase establece el color en un
+tono naranja, usa flexbox para alinear horizontalmente sus elementos secundarios, agrega un margen y
+relleno en la parte superior y derecha del elemento. */
+.Columnas-span{
+    color: rgb(249, 121, 2);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5.1875rem;
+    padding-top: 1.25rem;
+    padding-right: 1.25rem;
+}
+/*"Columnas-span"
+Le aplica un efecto de transición. El efecto de transición cambiará la propiedad de transformación del elemento durante una duración de
+0,2 segundos con una función de temporización ease. */
+.Columnas-span{
+    transition: transform .2s ease;
+}
+/* El código es un código CSS que aplica un efecto de desplazamiento a un elemento con la
+clase "Columnas-span". Cuando se pasa el cursor sobre el elemento, aumentará su tamaño en un 30%
+usando la propiedad "transformar" con la función "escala". */
+.Columnas-span:hover{
+    transform: scale(1.3);
+}
+/* El código es un selector de CSS que se dirige al pseudoelemento `::after` de un elemento
+con la clase `Columnas-span` cuando se desplaza sobre él. Aplica una propiedad de transformación CSS
+al pseudoelemento, escalando horizontalmente a un factor de 1. */
+.Columnas-span:hover::after{
+    transform: scaleX(1);
+}
+/* En esta parte del código CSS aplica una transformación y un cambio de color a un elemento
+con la clase "Columnas-span" cuando está en un estado activo (es decir, cuando se hace clic o se
+toca). Específicamente, escala el elemento a 1,3 veces su tamaño original y cambia su color a orangered */
+.Columnas-span:active{
+    transform: scale(1.3);
+    color: orangered;
+}
+/* El código anterior define una clase CSS llamada "Columna-a" y establece un estilo de borde para la
+parte inferior del elemento con un color blanco y un grosor de 0,1563 rem. */
+.Columna-a{
+    border-bottom: white solid .1563rem;
+}
+/*FOOTER*/
+.Footer-wrapper{
+    /*background-color: aqua;*/
+}
+/*.Rrss-ul.
+Está configurando la propiedad de visualización para que sea flexible, con un flujo de fila y sin ajuste.
+También centra los elementos horizontal y verticalmente con `justify-content: center` y `align-items: center`. 
+Está agregando una separacion de 1.25rem entre los elementos con `gap: 1.25rem`. 
+Está estableciendo un margen de 2,5 rem en la parte superior e inferior de la lista. 
+Finalmente, está agregando un efecto de transición a la propiedad transform con una duración de 0.2 segundos. */
+.Rrss-ul{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    margin: 2.5rem 0 2.5rem;
+    transition: transform .2s ease;
+}
+/* Este código CSS está diseñando los íconos de las redes sociales en la sección de pie de página de la
+página web. Cuando el usuario pasa el cursor sobre el ícono, aumentará su tamaño en un factor de 1.8
+y cambiará su color a un tono específico de naranja. La clase `Rrss-icon` establece el ancho del
+icono en 2em, su color en blanco y agrega un efecto de transición a la propiedad de transformación
+con una duración de 0,2 segundos. */
+.Rrss-icon:hover{
+    transform: scale(1.8);
+    color: rgb(249, 121, 2);
+}    
+.Rrss-icon{
+    width: 2em;
+    color: white;
+    transition: transform .2s ease;
+}
+.Rrss-li{}
+/*FIN FOOTER*/
+
+/*MODIFICACION DEL SCROL*/
+/* width */
+::-webkit-scrollbar {
+    width: .625rem;
+}
+ /* Track */
+::-webkit-scrollbar-track {
+    background:rgb(78, 77, 77);
+}
+ /* Handle */
+::-webkit-scrollbar-thumb {
+    background:rgb(249, 121, 2);
+    border-radius: .625rem;
+}
+/*FIN DE LA MODIFICACION DE SCROLL*/  

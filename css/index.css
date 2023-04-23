@@ -1,0 +1,805 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  vertical-align: baseline;
+}
+/* Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+/* Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: var(--negro);
+  color: var(--blanco);}
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* opcional */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+/* Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+/* Configuramos la tipografía para toda la web */
+body{
+    min-height: 100vh;
+    font-size: 100%;
+    background-image: url(../assets/fondo-counteractt.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Audiowide', cursive;
+}    
+
+/*HEADER ENCABEZADO*/
+.cabecera{
+   /*background-color: #00DDFF;*/
+}
+/*"cabecera-ul". 
+Establece el ancho en 90%, muestra los elementos como un contenedor flexible con un flujo de ajuste de fila, centra los
+elementos tanto horizontal como verticalmente, establece el tamaño de fuente en 2,5 vh y el peso de
+fuente en 600, agrega un espacio de 1,25 rem entre el elementos, agrega un relleno de 4 rem en la
+parte superior y establece el color del texto en blanco. */
+.cabecera-ul{
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 2.5vh;
+    font-weight: 600;
+    gap: 1.25rem;
+    padding-top: 4rem;
+    color: white;
+}
+.cabecera-li{
+    /*background-color: #00DDFF;*/
+}
+/*"cabecera-a".
+Cuando se pasa el cursor sobre el encabezado, se ampliará en un factor de 1,3. Además, hay un
+pseudoelemento "::after" que se agrega al encabezado, lo que crea una línea horizontal debajo del
+encabezado. Cuando se pasa el cursor sobre el encabezado, esta línea se animará para llenar el ancho
+del encabezado. */
+.cabecera-a{
+    transition: transform .2s ease;
+}
+.cabecera-a:hover{
+    transform: scale(1.3);
+}
+.cabecera-a::after{
+    content: "";
+    width: 100%;
+    height: .1875rem;
+    background-color:rgb(255, 76, 27);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all .4s ease;
+    transition: transform .2s ease;
+}
+/*"cabecera-a".
+Cuando se pasa el cursor sobre el enlace, se activa una animación que escala un pseudoelemento (::after)
+horizontalmente. Cuando se hace clic en el enlace, se amplía en un 30 % y su color cambia a rojo
+anaranjado. */
+.cabecera-a:hover::after{
+    transform: scaleX(1);
+}
+.cabecera-a:active{
+    transform: scale(1.3);
+    color: orangered;
+}
+/*@MEDIA DEL NAV*/
+/* @Media de 900px. Establece el ancho del elemento con la clase "cabecera-nav" al 100% y lo oculta al
+establecer su propiedad de visualización en "ninguna". Es probable que esto se use para ajustar el
+diseño de la página web para pantallas más pequeñas, como dispositivos móviles. */
+@media (max-width:900px){
+    .cabecera-nav{
+        width: 100%;
+        display: none;
+    }
+}
+/*FIN DE LA CABECERA*/
+
+/*Estilos para el encabezado*/
+
+/*Encabezado. 
+Establece el ancho y el alto del encabezado, lo posiciona absolutamente en la esquina superior izquierda de la página con un
+índice z de 4. También incluye un @Media que cambia la posición del encabezado a fijo
+cuando el ancho de la pantalla es menor. que o igual a 900px. */
+.header{
+    width: 100%;
+    height: 6.25rem;
+    position: absolute;
+    top: 0;left: 0;
+    z-index: 4;
+}
+@media (max-width:900px){
+    .header{
+        position: fixed;
+    }
+}
+/* El código anterior define estilos CSS para un elemento contenedor y un elemento de botón con la
+clase "btn-menu". El elemento contenedor tiene un ancho del 90 % y un ancho máximo de 75 rem, y se
+centra en la página usando márgenes automáticos. El elemento del botón flota hacia la derecha y
+tiene una altura de línea de 6,25 rem. Además, cuando el ancho de la ventana gráfica es menor o
+igual a 900 px, el elemento del botón se configura para mostrar el bloque.Diseño responsive para ajustar el diseño de la página para pantallas más
+pequeñas. */
+.container{
+    width: 90%;
+    max-width: 75rem;
+    margin: auto;
+}
+.container .btn-menu{
+    float: right;
+    line-height:6.25rem;
+    display: none;
+
+}
+@media(max-width:900px){
+    .container .btn-menu{
+        display: block;
+    }
+}
+/*`.btn-menu label` está diseñando el elemento de etiqueta dentro del botón, configurando el color, el tamaño de
+fuente y el cursor. El selector `.menu` está diseñando el contenedor del menú, flotándolo hacia la
+derecha y configurando la altura de la línea. */
+.container .btn-menu label{
+    color: #fff;
+    font-size: 1.5625rem;
+    cursor: pointer;
+}
+.container .menu{
+    float: right;
+    line-height: 6.25rem;
+}
+.container .menu a{
+    display: inline-block;
+    padding: .9375rem;
+    line-height: normal;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+    border-bottom: .125rem solid transparent;
+    font-size: .9375rem;
+    margin-right: .3125rem;
+}
+/*Estilo CSS para el estado de desplazamiento de las etiquetas
+de anclaje dentro de un elemento de menú que es un elemento secundario de un elemento contenedor.
+Cuando se pasa el cursor sobre la etiqueta de anclaje, tendrá un borde inferior de 0,125 rem de
+grosor y un color de #c7c7c7, y su relleno en la parte inferior aumentará a 0,3125 rem. */
+.container .menu a:hover{
+    border-bottom: .125rem solid #c7c7c7;
+    padding-bottom: .3125rem;
+}
+.cont-menu nav a:active{
+    color: orange
+}
+/*Estilos CSS para el elemento de etiqueta dentro de un contenedor con la
+clase "cont-menu". El elemento de la etiqueta se coloca absolutamente con un desplazamiento a la
+derecha de 0,3125 rem y un desplazamiento superior de 0,625 rem. El color del texto se establece en
+blanco (#fff), el cursor se establece en puntero y el tamaño de fuente se establece en 18 px. */
+.cont-menu label{
+    position: absolute;
+    right: .3125rem;
+    top: .625rem;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+}
+/*Fin de Estilos para el encabezado*/
+
+/*Menù lateral*/
+#btn-menu{
+    display: none;
+}
+/*"menú-contenedor"
+Este contenedor está posicionado absolutamente y tiene un fondo negro
+semitransparente. Cubre toda la altura y el ancho de la ventana gráfica y se oculta inicialmente con
+cero opacidad y visibilidad. Tiene un efecto de transición de 500ms de facilidad. La propiedad
+z-index establece el orden de apilamiento del elemento. */
+.container-menu{
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100vh;
+    top: 0;left: 0;
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 3;
+}
+/*ID "btn-menu" que está marcado y es hermano de un elemento con la clase "container-menu". Cuando se marca "btn-menu", el código CSS
+establece la opacidad del "container-menu" en 1 y la visibilidad en visible. Es probable que este
+código se use para mostrar u ocultar un menú cuando se hace clic en "btn-menu". */
+#btn-menu:checked ~ .container-menu{
+    opacity: 1;
+    visibility: visible;
+}
+.cont-menu{
+    width: 100%;
+    max-width: 15.625rem;
+    background: #1c1c1c;
+    height: 100vh;
+    position: relative;
+    transition: all 500ms ease;
+    transform: translateX(-100%);
+    display: block;
+}
+#btn-menu:checked ~ .container-menu .cont-menu{
+    transform: translateX(0%);
+}
+.cont-menu nav{
+    transform: translateY(15%);
+}
+.cont-menu nav a{
+    display: block;
+    text-decoration: none;
+    padding: 1.25rem;
+    color: #c7c7c7;
+}
+/*La etiqueta se coloca absolutamente en la esquina superior derecha del contenedor. La @Media está
+configurando la propiedad de visualización del contenedor para bloquear cuando el ancho de la
+ventana es menor o igual a 980px. */
+.cont-menu label{
+    position: absolute;
+    right: .3125rem;
+    top: .625rem; 
+}
+@media(max-width:980){
+    .cont-menu{
+        display: block;
+    }
+}
+/*Fin de Menù lateral*/
+
+/*MAIN*/
+.Main{
+    /*background-color: rebeccapurple;*/
+}
+/*"Main-Counteractt" y establece su ancho en 100% y su
+posición en relativa. Esta clase se puede aplicar a elementos HTML para darles el estilo
+correspondiente. */
+.Main-Counteractt{
+    width:100%;
+    position: relative;
+}   
+
+/*"Counteractt-img" y establece su ancho en 7 rem y su
+altura en 10 rem. Esta clase se puede aplicar a un elemento HTML para darle estas dimensiones
+específicas. */
+.Counteractt-img{
+    width: 7rem;
+    height: 10rem;
+}
+
+/*"Main" y establece su ancho en 100%.
+También establece la propiedad de posición en "relativa" y la propiedad de índice z en 2. La propiedad de
+color de fondo está comentada y no se usa. */
+.Main{
+    width:100%;
+    /*background-color: black;*/
+    position: relative;
+    z-index: 2;
+}
+.video-home{
+    width: 100%; 
+}
+/*"img-video" 
+Que establece el ancho del elemento al 70% de su contenedor principal, lo posiciona absolutamente con un índice z de 2 y
+establece sus valores superior e inferior de 0 a estirarlo verticalmente. También establece el valor
+de la izquierda en 15% y el valor de la derecha en 0 para posicionarlo horizontalmente. Es probable
+que esta clase se use para diseñar una imagen o un elemento de video en una página web. */
+.img-video{
+    width: 70%;
+    position: absolute;
+    z-index: 2;
+    top: 0%;
+    bottom: 0;
+    left: 15%;
+    right: 0;
+}
+.Main-hightlights{
+    width:90%;
+    /*background-color: brown;*/
+    display:inline;
+    color: white;
+    margin: 0 12.5rem;
+}
+.Hightlights-wrapper{
+    width: 95%;
+    max-width:76rem;
+    /*background-color: yellowgreen;*/
+    margin: auto;
+}
+/*"Hightlights-h1" 
+que se usa para diseñar un elemento de encabezado. Establece el tamaño de fuente, la transformación del texto, la altura de línea, el
+borde, el margen, la visualización, el flujo flexible y las propiedades de animación para el
+elemento de título. La propiedad de animación utiliza una animación de fotogramas clave llamada
+"Hightlights-h1" que dura 0,8 segundos y tiene una función de tiempo lineal. */
+.Hightlights-h1{
+    font-size:5vh;
+    text-transform: uppercase;
+    line-height: 4.376rem;
+    border-bottom: rgb(249, 121, 2) solid .1563rem;
+    margin: 0 0 4.375rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    animation:Hightlights-h1 0.8s linear both
+}  
+/* El código anterior define una animación CSS utilizando la regla `@keyframes`. La animación se llama
+`Hightlights-h1`. */
+@keyframes Hightlights-h1{
+    0%{letter-spacing:.6em;opacity:0}
+    40%{opacity:.6}
+    100%{letter-spacing:normal;opacity:1}  
+}
+/* El código anterior define estilos CSS para un elemento contenedor con la clase
+"Hightlights-contenedora". Configura el contenedor para que tenga una visualización flexible con una
+dirección de fila y espacia uniformemente los elementos secundarios con un espacio de 1,25 rem.
+También establece que el contenedor tenga una base flexible del 50 % del ancho disponible. Además,
+hay una consulta de medios que cambia la dirección flexible a columna cuando el ancho de la pantalla
+es menor o igual a 991 px. */
+.Hightlights-contenedora{
+    flex-basis: calc(100% / 2 );
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items:center;
+    gap: 1.25rem;
+}
+@media (max-width:991px){
+    .Hightlights-contenedora{
+        flex-direction: column;
+    }
+}
+
+/* El código define estilos CSS para una sección con la clase "Hightlights-secion" y una
+imagen con la clase "Hightlights-img". La propiedad "margin-top" establece el margen superior de la
+sección en 3,75 rem. Las propiedades "ancho" y "alto" establecen las dimensiones de la imagen al
+100% de su contenedor. La propiedad "display" se establece en "block" para la imagen y "flex" para
+la sección. El color de fondo está comentado. */
+.Hightlights-secion{
+    margin-top: 3.75rem;
+}
+.Hightlights-img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    /*background-color: cadetblue;*/
+    display: flex;
+}
+
+/*"Main-Voice"
+Establece el ancho en 100 %, agrega un relleno de 6,25 rem y comenta una propiedad de color de fondo. */
+.Main-Voice{
+    width: 100%;
+    /*background-color: aqua;*/
+    padding: 6.25rem;
+}
+/*"Voice-h2" 
+Se usa para diseñar un elemento de encabezado. El estilo incluye establecer la propiedad de visualización en flex, definir el flujo
+flexible para que esté en una sola fila, centrar el contenido tanto horizontal como verticalmente,
+establecer el color de la fuente en blanco, aumentar el tamaño de la fuente a 2,5 rem, establecer el
+peso de la fuente en 600, y transformando el texto a mayúsculas. Adicionalmente, se define una
+animación denominada "Voice-h2" con una duración de 0,8 segundos y una función de temporización
+lineal, que se aplicará al encabezado */
+.Voice-h2{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    animation:Voice-h2 0.8s linear both  
+}
+@keyframes Voice-h2{
+    0%{letter-spacing:.6em;opacity:0}
+    40%{opacity:.6}
+    100%{letter-spacing:normal;opacity:1}
+}  
+/*"Videoclip principal" y configura su ancho al 100% y
+la alineación del texto al centro. Esta clase se puede aplicar a un elemento HTML para darle estos
+estilos. */
+.Main-Videoclip{
+    width: 100%;
+    text-align: center;
+}
+/*Define estilos CSS para un elemento iframe con la clase "Videoclip-iframe".
+Establece el ancho en 100 %, la altura en 33,5 rem y centra el contenido dentro del elemento.
+También agrega relleno en la parte superior e inferior del elemento y agrega más relleno en los
+lados derecho e izquierdo. */
+.Videoclip-iframe{
+    width: 100%;
+    height: 33.5rem;
+    flex-wrap: wrap;
+    align-content: center;
+    padding-top: 0%;
+    padding-right: 10%;
+    padding-bottom: 0em;
+    padding-left: 10%;
+}
+
+/*"Main-Merch"
+Establece su ancho en 90%. El color de fondo está comentado, por lo que no se está utilizando actualmente.
+La propiedad "display" se establece en "inline", lo que significa que el elemento se mostrará en línea con el contenido que lo
+rodea. */
+.Main-Merch{
+    width:90%;
+    /*background-color: brown;*/
+    display:inline;
+}
+/*"Merch-wrapper"
+Establece el ancho del elemento en el 95 % de su contenedor principal, con un ancho máximo de 100 rem. 
+También centra el elemento horizontalmente usando margin:auto. El color de fondo está comentado, por lo que no se aplicará. */
+.Merch-wrapper{
+    width: 95%;
+    max-width:100rem;
+    /*background-color: yellowgreen;*/
+    margin: auto; 
+}
+/*"Merch-h2"
+Está configurando la propiedad de display:flex y definiendo las propiedades de flujo
+flexible, justificar contenido y alinear elementos para centrar el contenido horizontal y
+verticalmente. También establece las propiedades de color, tamaño de fuente, peso de fuente y
+transformación de texto para el texto. Además, está agregando una animación llamada "Merch-h2" con
+una duración de 0,8 segundos y una función de tiempo lineal. Finalmente, está agregando relleno a la
+parte superior del elemento. */
+.Merch-h2{
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   font-size: 2.5rem;
+   font-weight: 600;
+   text-transform: uppercase;
+   animation:Merch-h2 0.8s linear both;
+   padding-top: 6rem;
+}
+/* El código anterior define una animación de fotograma clave llamada "Merch-h2". La animación cambia
+el espaciado entre letras y la opacidad de un elemento con el tiempo. Al comienzo de la animación (0
+%), el espaciado entre letras se establece en 0,6 em y la opacidad se establece en 0. A medida que
+avanza la animación (40 %), la opacidad aumenta a 0,6. Finalmente, al final de la animación (100%),
+el espaciado entre letras se establece en normal y la opacidad se establece en 1. Esta animación se
+puede aplicar a un elemento HTML usando CSS. */
+@keyframes Merch-h2{
+    0%{letter-spacing:.6em;opacity:0}
+    40%{opacity:.6}
+    100%{letter-spacing:normal;opacity:1}  
+}
+/* El código anterior define una clase CSS llamada "Merch-contenedora" que se usa para diseñar un
+elemento contenedor. El elemento contenedor está configurado para tener una base flexible de un
+tercio del espacio disponible, que se muestra como un contenedor flexible con elementos dispuestos
+en una sola fila, con espacio entre ellos y alineado en la parte superior. El espacio entre los
+elementos se establece en 20 px y se aplica un margen inferior de 3 rem al contenedor. */
+.Merch-contenedora{
+    flex-basis: calc(100% / 3 );
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items:flex-start;
+    gap: 20px;
+    margin-bottom: 3rem;
+}
+/*"Merch-section"
+Establece el margen superior en 3.75rem y usa flexbox para mostrar la sección como una fila con elementos
+envolventes, justificando el contenido con espacio entre ellos y alineando los elementos en la parte
+superior. El @Media establece la dirección flexible en la columna cuando el ancho de la
+pantalla es menor o igual a 1015 px. */
+.Merch-section{
+    margin-top: 3.75rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+@media (max-width:1015px){
+    .Merch-contenedora{
+        flex-direction: column;
+    }  
+}
+/*"Merch-img" 
+Establece las propiedades de margen, ancho, alto, color de fondo y ajuste de objeto para un elemento de imagen.
+El elemento de imagen con esta clase tendrá un margen de 20 píxeles en la parte superior y 0 píxeles a la izquierda y a la
+derecha, un ancho del 100 %, una altura de 560 píxeles, un color de fondo de cadetblue y el conjunto
+de propiedades de ajuste de objeto cubrir. */
+.Merch-img{
+    margin: 20px 0 0;
+    width: 100%;
+    height:560px;
+    background-color: cadetblue;
+    object-fit: cover;
+}
+/*"Merch-h3"
+Establece la propiedad de visualización en "flex" y especifica que el flujo flexible sea una fila que se ajuste cuando sea necesario.
+También centra el contenido tanto horizontal como verticalmente usando las propiedades de justificar
+contenido y alinear elementos respectivamente. La propiedad gap agrega un espacio de 1,25 rem entre
+los elementos flexibles. La propiedad margin establece el margen superior en 20px y la propiedad
+font-size establece el tamaño de fuente en 3vh. Finalmente, la propiedad de color establece el color
+del texto en blanco. */
+.Merch-h3{
+    /*background-color: brown;*/
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    margin: 20px 0 0;
+    font-size: 3vh;
+    color:white;
+}
+/*"Merch-p"
+Establece el color del texto en un tono de naranja, establece el tamaño de fuente en un 2,5% de la altura de la ventana gráfica y centra el
+elemento horizontalmente usando la propiedad "margen: automático". */
+.Merch-p{
+    color: rgb(248, 102, 4);;
+    font-size:2.5vh;
+    margin: auto;
+}
+/*"Botonera". 
+Establece la propiedad de visualización en "flex" y la propiedad de flujo flexible en "row nowrap", lo que significa que los
+elementos secundarios de la clase se mostrarán en una sola fila y no pasarán a la siguiente línea.
+También establece la propiedad de justificar el contenido en "centrar" y la propiedad de alinear
+elementos en "centrar", lo que centra los elementos secundarios tanto horizontal como verticalmente
+dentro del contenedor. Finalmente, establece un margen inferior de 6,25 rem */
+.Botonera{
+    /*background-color: #09f;*/
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6.25rem;
+}
+
+/*"Botón"
+Establece las propiedades de estilo para un elemento de botón. El botón no tiene borde, un color de fondo degradado, esquinas redondeadas,
+texto blanco y un puntero de cursor. El tamaño de fuente se establece en 1,125 rem y hay un efecto
+de transición de 0,3 segundos. */
+.Button{
+    border: 0;
+    background-image: linear-gradient(150deg,#9500ff,#09f,#00DDFF);
+    border-radius: .5rem;
+    color:#fff;
+    display: flex;
+    font-size: 1.125rem;
+    padding: .25rem;
+    cursor: pointer;
+    transition: .3s;
+} 
+/*"Button-span". 
+Esta clase establece el color de fondo en #111, agrega un relleno de 1 rem en la parte superior e inferior y 1,5 rem a la izquierda y
+a la derecha, establece el radio del borde en 0,375 rem, agrega un efecto de transición de 0,3 s y
+establece el texto en mayúsculas. Esta clase se puede aplicar a elementos HTML para darles el estilo
+correspondiente. */
+.Button-span{
+    background-color: #111;
+    padding: 1rem 1.5rem;
+    border-radius: .375rem;
+    transition: .3s;
+    text-transform: uppercase;
+   
+}
+/* El código anterior es código CSS que define estilos para dos estados diferentes de un elemento de
+botón. */
+.Button:hover span{
+    background: none;
+}
+button:active{
+    transform: scale(0.9);
+}
+/*`.Main-events` está configurando el ancho al 100%, mostrándolo en línea, configurando el color
+del texto en blanco y agregando un margen de 0 en la parte superior e inferior y 12.5 rem a la
+izquierda y derecha.*/
+
+.Main-events{
+    width:100%;
+    /*background-color: brown;*/
+    display:inline;
+    color: white;
+    margin: 0 12.5rem;
+}
+/*La clase `.Events-wrapper` está configurando el ancho al 95% con un ancho
+máximo de 76 rem, centrándolo horizontalmente con `margin: auto` y agregando un color de fondo
+amarillo verdoso (que actualmente está comentado).*/
+.Events-wrapper{
+    width: 95%;
+    max-width:76rem;
+    /*background-color: yellowgreen;*/
+    margin: auto;
+}
+.Events-h2{
+  display: flex;
+  flex-flow: row-reverse;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  animation:Merch-h2 0.8s linear both
+}  
+/* El código anterior define una animación CSS usando la regla `@keyframes`. La animación se llama
+`Hightlights-h1`. */
+@keyframes Events-h2{
+    0%{letter-spacing:.6em;opacity:0}
+    40%{opacity:.6}
+    100%{letter-spacing:normal;opacity:1}  
+}
+/*"Eventos-contenedora".
+Configura el contenedor para que tenga una pantalla flexible con dirección de fila, espacio entre
+elementos y un espacio de 1,25 rem. También establece que el contenedor tenga una base flexible del
+50 % del espacio disponible. Además, hay un @Media que cambia la dirección flexible a
+columna cuando el ancho de la pantalla es menor o igual a 991 px. */
+.Events-contenedora{
+    flex-basis: calc(100% / 2 );
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items:center;
+    gap: 1.25rem;
+}
+@media (max-width:991px){
+    .Events-contenedora{
+        flex-direction: column;
+    }
+}
+
+.Events-secion{
+    margin-top: 3.75rem;
+}
+/*"Eventos-img".
+Establece el ancho y la altura al 100 %, convierte el elemento en un elemento a nivel de bloque y
+usa flexbox para alinear sus elementos secundarios. La línea comentada sugiere que el elemento puede
+haber tenido un color de fondo establecido previamente. */
+.Events-img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    /*background-color: cadetblue;*/
+    display: flex;
+}
+/*"Button-events".
+Establece el color, el tamaño de fuente, el color de fondo, el borde, el radio del borde, el relleno, la
+sombra del cuadro, la transición, el cursor, la visualización, el flujo flexible, la justificación
+del contenido, la alineación de elementos y las propiedades de transformación del texto. También
+define una pseudoclase para cuando el botón está activo, que cambia la sombra y la posición del
+cuadro. */
+.Button-events {
+    color: #ecf0f1;
+    font-size: 17px;
+    background-color: rgb(249, 121, 2);
+    border: 1px solid #f39c12;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 6px 0px #d35400;
+    transition: all .1s;
+    cursor: pointer;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}   
+/*"Button-events:active"
+Cuando está en estado activo (es decir, cuando se hace clic o se toca). Agrega un efecto de sombra de cuadro al
+botón y lo desplaza hacia abajo 2 píxeles utilizando las propiedades "posición" y "superior". 
+El color de la sombra del cuadro es #d35400. */
+.Button-events:active {
+    box-shadow: 0px 2px 0px #d35400;
+    position: relative;
+    top: 2px;
+}
+/*FIN MAIN*/
+
+
+/*FOOTER*/
+.Footer-wrapper{
+    /*background-color: aqua;*/
+}
+.Rrss-a{
+    /*background-color: #00DDFF;*/
+
+}
+/*".Rrss-ul"
+Establece la propiedad de visualización en "flex" y define las propiedades de flexbox, como flujo flexible, contenido
+justificado, elementos alineados y espacio. También establece las propiedades de margen y
+transición. Es probable que esta clase se use para diseñar una lista de íconos o enlaces de redes
+sociales. */
+.Rrss-ul{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    margin: 2.5rem 0 2.5rem;
+    transition: transform .2s ease;
+}
+/*"Rrss-icon". Cuando el mouse pasa sobre el icono, aumentará de tamaño y cambiará de color a naranja.
+Los iconos tienen un ancho predeterminado de 2 em y un color blanco. La propiedad de transición se
+usa para crear una animación suave cuando el icono se amplía al pasar el mouse por encima. */
+.Rrss-icon:hover{
+    transform: scale(1.8);
+    color: rgb(249, 121, 2);
+}    
+.Rrss-icon{
+    width: 2em;
+    color: white;
+    transition: transform .2s ease;
+}
+.Rrss-li{}
+/*FIN FOOTER*/
+
+/*MODIFICACION DEL SCROL*/
+/* width */
+::-webkit-scrollbar {
+    width: .625rem;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background:rgb(78, 77, 77);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background:rgb(248, 102, 4);
+    border-radius: 1rem;
+  }
+/*FIN DE LA MODIFICACION DE SCROLL*/  

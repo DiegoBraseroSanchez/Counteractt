@@ -1,0 +1,621 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  vertical-align: baseline;
+}
+/* Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+/* Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: var(--negro);
+  color: var(--blanco);}
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* opcional */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+/* Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+/* Configuramos la tipografía para toda la web */
+body{
+    min-height: 100vh;
+    font-size: 100%;
+    background-image: url(../assets/fondo-counteractt.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Audiowide', cursive;
+    
+}
+/*INICIO HEADER*/
+.header{
+  /*background-color: aqua;*/
+    
+}
+
+/* Este código CSS define una clase llamada "contenedor" que establece el ancho del elemento en el 90 %
+de su contenedor principal, con un ancho máximo de 75 rem. También centra el elemento
+horizontalmente usando márgenes automáticos. La propiedad "display: none" oculta el elemento por
+defecto.*/
+.container{
+    width: 90%;
+    max-width: 75rem;
+    margin: auto;
+    display: none;
+}
+/* define un @media que apunta a pantallas con un ancho máximo de 900px.
+Cuando el ancho de la pantalla es menor o igual a 900px, se aplicará la regla CSS
+dentro del @media, que establece la propiedad de visualización del elemento con clase
+"container" en "block". Esto hará que el elemento sea visible en pantallas más pequeñas y lo
+ocultará en pantallas más grandes. */
+@media (max-width:900px){
+    .container{
+        display: block;
+    }
+}
+/* Este codigo esta disiñado para un botón que se usará para alternar un menú. La clase `.btn-menu`
+configura el botón para que flote hacia la derecha y tenga una altura de línea de 6,25 rem. La
+etiqueta ".btn-menu" está diseñando el elemento de etiqueta dentro del botón, configurando su
+color en blanco, el tamaño de fuente en 1.5625rem y el cursor en puntero. */
+.btn-menu{
+    float: right;
+    line-height:6.25rem;
+}
+.btn-menu label{
+    color: #fff;
+    font-size: 1.5625rem;
+    cursor: pointer;
+}
+.cabecera{
+   /*background-color: #00DDFF;*/
+}
+/* Definición de estilos para un elemento de lista desordenada con la clase "cabecera-ul" que se
+utiliza en la sección de encabezado de la página web. */
+.cabecera-ul{
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 2.5vh;
+    font-weight: 600;
+    gap: 1.25rem;
+    padding-top: 2rem;
+    padding-bottom:4rem;
+    color: white;
+}
+.cabecera-li{
+    /*background-color: #00DDFF;*/
+}
+/*Se agrega un efecto de transición a la etiqueta "a" con la clase
+"cabecera-a". Cuando el usuario pasa el cursor sobre la etiqueta "a", se escalará hasta 1,3
+veces su tamaño original con un efecto de transición ease. */
+.cabecera-a{
+    transition: transform .2s ease;
+}
+.cabecera-a:hover{
+    transform: scale(1.3);
+}
+/* Este código CSS está creando un efecto de subrayado para los enlaces con la clase "cabecera-a" en la
+sección de encabezado de la página web. */
+.cabecera-a::after{
+    content: "";
+    width: 100%;
+    height: .1875rem;
+    background-color:rgb(255, 76, 27);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all .4s ease;
+    transition: transform .2s ease;
+}
+/* Este código CSS está definiendo estilos para los enlaces con la clase "cabecera-a" en la sección de
+encabezado de la página web. */
+.cabecera-a:hover::after{
+    transform: scaleX(1);
+}
+.cabecera-a:active{
+    transform: scale(1.3);
+    color: orangered;
+}
+/* Este código define una consulta de medios que apunta a pantallas con un ancho máximo de 900 px.
+Cuando el ancho de la pantalla sea menor o igual a 900px, la regla CSS dentro del @media
+se aplicará al elemento con la clase "cabecera-nav". La regla establece el ancho del elemento
+al 100 % y lo oculta al establecer la propiedad de display "nove". Esto se usa para
+ocultar el menú de navegación en pantallas más pequeñas donde puede no ser necesario o práctico
+mostrarlo. */
+@media (max-width:900px){
+    .cabecera-nav{
+        width: 100%;
+        display: none;
+    }
+}
+/*Fin de Estilos para el encabezado*/
+
+/*Menù lateral*/
+
+/*Está ocultando un elemento HTML con el ID "btn-menu"
+configurando su propiedad de visualización en "none".Este es un elemento botón que
+se usa para alternar un menú y está oculto de forma predeterminada hasta que se necesite. */
+#btn-menu{
+    display: none;
+}
+/*Define los estilos para un contenedor que se usará como una superposición de menú.
+Establece la posición en absoluta, cubre toda la ventana gráfica con un fondo negro semitransparente
+y establece la opacidad y la visibilidad en 0 para ocultarlo de forma predeterminada. La propiedad
+de transición también está configurada para crear una animación fluida cuando se muestra u oculta el
+menú. La propiedad del z-index establecida en 2 para garantizar que la superposición del menú
+aparezca encima de otros elementos de la página. */
+.container-menu{
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100vh;
+    top: 0;left: 0;
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+}
+/* Este código CSS está seleccionando el elemento con clase "menú-contenedor" que viene después de un
+elemento con ID "menú-btn" que está marcado. Establece la opacidad en 1 y la visibilidad en visible,
+lo que hace que el elemento "container-menu" sea visible en la página cuando se marca el elemento
+"btn-menu" (generalmente al hacer clic en él). Esto se utiliza para activar y desactivar un menú. */
+#btn-menu:checked ~ .container-menu{
+    opacity: 1;
+    visibility: visible;
+}
+/* El código anterior define los estilos CSS para un menú de navegación receptivo que está oculto de
+forma predeterminada y se puede abrir y cerrar haciendo clic en una etiqueta. El menú tiene un fondo
+negro y contiene enlaces con estilos activos y flotantes. El menú está configurado para deslizarse
+desde el lado izquierdo de la pantalla cuando se abre en pantallas de más de 980 px. */
+.cont-menu{
+    width: 100%;
+    max-width: 15.625rem;
+    background: #1c1c1c;
+    height: 100vh;
+    position: relative;
+    transition: all 500ms ease;
+    transform: translateX(-100%);
+    display: block;
+}
+#btn-menu:checked ~ .container-menu .cont-menu{
+    transform: translateX(0%);
+}
+.cont-menu nav{
+    transform: translateY(15%);
+}
+.cont-menu nav a{
+    display: block;
+    text-decoration: none;
+    padding: 1.25rem;
+    color: #c7c7c7;
+    border-left: .3125rem solid transparent;
+    transition: all 400ms ease;
+}
+.cont-menu nav a:hover{
+    border-left: .3125rem solid rgb(255, 76, 27);;
+    background: #1f1f1f;
+}
+.cont-menu nav a:active{
+    color: orange
+}
+.cont-menu label{
+    position: absolute;
+    right: .3125rem;
+    top: .625rem;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.125rem;
+}/*@media de const-menu, tiene un display block que hace que cuando sea 980px o inferior se active el display block*/
+@media(max-width:980px){
+    .cont-menu{
+        display: block;
+    }
+}
+/*Fin de Menù lateral*/
+/*FIN DEL HEADER*/
+
+.Main{
+    /*background-color: brown;*/
+}
+/* El código anterior define una clase CSS llamada "Main-img" que se usa para diseñar un elemento de
+imagen. Las propiedades CSS definidas dentro de la clase establecen el ancho de la imagen al 100 %
+de su contenedor, establecen la altura al 0 % (lo que significa que la altura estará determinada por
+la relación de aspecto de la imagen) y usan el "objeto- fit" para garantizar que la imagen cubra
+todo el contenedor manteniendo su relación de aspecto. La propiedad "posición de objeto" se utiliza
+para centrar la imagen dentro del contenedor. */
+.Main-img{
+    width: 100%;
+    height: 0%;
+    object-fit: cover;
+    object-position: center;
+}
+.Biografia{
+    /*background-color: aqua;*/
+}
+/* El código anterior define estilos CSS para un elemento de encabezado con la clase "biografia-h1".
+Establece el tamaño de fuente en 10vh, centra el texto horizontal y verticalmente, establece el
+color del texto en un tono específico de naranja y aplica la transformación de texto en mayúsculas.
+También incluye consultas de medios para ajustar el tamaño de fuente para tamaños de pantalla más
+pequeños. */
+.biografia-h1{
+    font-size: 10vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 76, 27);
+    text-transform: uppercase;
+}
+/*Define dos @MEIDA para diferentes tamaños de pantalla.
+El primer @media apunta a pantallas con un ancho máximo de 775 píxeles y establece el tamaño de
+fuente de los elementos con la clase "biografía-h1" al 7vh de la altura de la ventana.
+El segundo @meida apunta a pantallas con un ancho máximo de 525 píxeles y establece el
+tamaño de fuente de los elementos con la clase "biografía-h1" al 4vh de la altura de la ventana.
+Esta es una técnica de diseño responsive para ajustar el tamaño de fuente de un encabezado
+según el tamaño de la pantalla. */
+@media (max-width:775px){
+    .biografia-h1{
+        font-size: 7vh;
+    }
+}
+@media (max-width:525px){
+    .biografia-h1{
+        font-size: 5vh;
+    }
+}
+/*Define un estilo CSS para un elemento con la clase "biografia-p". Establece el
+ancho en 60 %, el color del texto en blanco y usa flexbox para alinear el contenido horizontal y
+verticalmente en el centro. También establece el tamaño de fuente, el espaciado entre letras y la
+altura de línea. */
+.biografia-p{
+    width: 60%;
+    color: white;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 1.3rem;
+    
+}
+
+/* El código anterior es una consulta de medios CSS que apunta a pantallas con un ancho máximo de 650px
+Establece el ancho del elemento con clase "biografía-p" al 90% cuando el tamaño de la
+pantalla es menor o igual a 650 píxeles.Esto se use para hacer que el elemento
+responda mejor y sea más legible en pantallas más pequeñas. */
+@media(max-width:650px){
+    .biografia-p{
+        width: 90%;
+        
+    }
+}
+/*Main*/
+
+.Main-conciertos{
+    width:90%;
+    /*background-color: brown;*/
+    display:inline;
+}
+/*"Conciertos-wrapper"
+Establece el ancho en el 95 % del elemento principal o un máximo de 100 rem, centra el elemento horizontalmente
+usando el margen automático y tiene un color de fondo amarillo verdoso comentado. */
+.Conciertos-wrapper{
+    width: 95%;
+    max-width:100rem;
+    /*background-color: yellowgreen;*/
+    margin: auto;
+    
+}
+/*"Conciertos-h2"
+Establece el tamaño de fuente en 2.5vh, transforma el texto a mayúsculas, establece la altura de la
+línea en 4.376 rem, agrega un borde inferior con un color de rgb (255, 76, 27) y un grosor de .1563
+rem, establece un margen de 0 en la parte superior y 4,375 rem en la parte inferior, y luego anula
+el margen inferior con un nuevo valor de 12,5 rem en la parte superior.*/
+.Conciertos-h2{
+    font-size:2.5vh;
+    text-transform: uppercase;
+    line-height: 4.376rem;
+    border-bottom:  rgb(255, 76, 27) solid .1563rem;
+    margin: 0 0 4.375rem;
+    margin: 12.5rem 0 0;
+    color: white;
+}
+/*"Conciertos-contenedora"
+Se utiliza para diseñar un elemento contenedor. El elemento contenedor está configurado para tener un flex-basis:calc(100% / 3 )
+esto hace que se divida en 3 columnas ,con un contenedor flexible con un flex-flow: row nowrap para que todo se quede en la misma fila y no baje a otra,
+justificar que el contenido esté espaciado uniformemente entre los elementos, alinear los
+elementos en la parte superior y tener un espacio de 20 píxeles entre los elementos.*/
+.Conciertos-contenedora{
+    flex-basis: calc(100% / 3 );
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items:flex-start;
+    gap: 20px;
+}
+/*"Sección de conciertos".
+Establece un margen superior de 60 px y usa flexbox para mostrar sus elementos secundarios en un
+formato de ajuste de fila con espacio entre ellos. La propiedad align-items se establece en
+flex-start para alinear los elementos secundarios con la parte superior del contenedor. */
+.Conciertos-section{
+    margin-top: 60px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+/* @Media que apunta a pantallas con un ancho máximo de 1015px
+Aplica un estilo al elemento con la clase "Conciertos-contenedora", cambiando su dirección
+de flex a columna. Esto cambiará el diseño del elemento de una fila a una columna cuando se vea en
+pantallas más pequeñas. */
+@media (max-width:1015px){
+    .Conciertos-contenedora{
+        flex-direction: column;
+    }  
+}
+/*"Conciertos-img"
+Que establece las propiedades de margen, ancho, alto y color de fondo para un elemento de imagen. La propiedad margin establece el
+margen superior en 20 px, la propiedad width establece el ancho en 100 %, la propiedad height
+establece el alto en 560 px y la propiedad background-color establece el color de fondo en
+cadetblue. */
+.Conciertos-img{
+    margin: 20px 0 0;
+    width: 100%;
+    height:560px;
+    background-color: cadetblue;
+    cursor: pointer;
+    
+}
+/*"Conciertos-h3"
+Esta clase se usa para diseñar un elemento de encabezado (h3) de una manera específica. El código usa las propiedades de flexbox para
+centrar y alinear el elemento del encabezado, establecer un espacio entre los elementos y ajustar el
+tamaño y el color de la fuente. El color de fondo está comentado, por lo que no se está utilizando
+actualmente. */
+.Conciertos-h3{
+    /*background-color: brown;*/
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    margin: 20px 0 0;
+    font-size: 3vh;
+    color: wheat;
+}
+/*"Conciertos-span"
+ Establece el color del texto en blanco, el tamaño de fuente en 2.5vh y la altura de la línea en 3rem.
+ También agrega un borde inferior al texto con un color de rgb (255, 76, 27) y un grosor de .1563rem. */
+.Conciertos-span{
+    color: white;
+    font-size:2.5vh;
+    line-height: 3rem;
+    border-bottom: rgb(255, 76, 27) solid .1563rem;  
+}
+/* El código anterior define los estilos CSS para una clase llamada "Lightbox". Establece la posición
+en fijo, cubre toda la ventana con un ancho y alto del 100 % y establece la visualización en
+ninguno. También usa propiedades de flexbox para centrar el contenido vertical y horizontalmente
+dentro del contenedor. */
+.Lightbox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+/*Define una clase llamada ".Lightbox.isActive".Cuando
+esta clase se aplica al elemento, cambiará la propiedad de visualización a "flex", lo que hará que
+el elemento sea visible en la página. */
+.Lightbox.isActive{
+    display: flex;
+}
+@media (max-width:700px){
+    .Lightbox.isActive{
+        display: none;
+    }
+}
+/* El código anterior define una clase CSS llamada "Lightbox-btn". Establece el color de fondo en
+blanco, agrega un relleno de 1 rem en la parte superior e inferior y 2 rem a la izquierda y a la
+derecha, y establece el radio del borde en 1 rem. Esta clase se puede aplicar a elementos HTML para
+diseñarlos como un botón para usar en una caja de luz o ventana modal. */
+.Lightbox-btn{
+    background-color: white;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+/*Define estilos CSS para un elemento con la clase "Lightbox-img". Establece el
+color de fondo en naranja y establece el ancho en un 40 % del ancho del elemento principal, con un
+ancho máximo de 900 px. */
+.Lightbox-img{
+    background-color: orange;
+    width: 40%;
+    max-width: 900px;
+}
+
+.Columnas{
+    /*background-color: chartreuse;*/
+}
+/* El código anterior define estilos CSS para un diseño con varias columnas. La clase
+`.Columnas-wrapper` define el contenedor general para las columnas, con un ancho del 90%, centrado
+horizontalmente con `margin: auto`, y usa flexbox para organizar las columnas en una fila con
+espacio entre ellas (`justify-conten:space.between`). La clase `.Columnas-section` define las
+columnas individuales, con una base flexible del 25 % (calculado como 100 % dividido por 4) y un
+relleno superior de 10 rem. El color de fondo está comentado, por lo que es */
+.Columnas-wrapper{
+    width:90%;
+    margin: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 0 100px;
+}
+.Columnas-section{
+    flex-basis: calc( 100% / 4 );
+    /*background-color: brown;*/
+    padding-top: 10rem;
+}
+
+/* @media que apunta a pantallas con un ancho máximo de 885px
+Cambia el diseño de los elementos con la clase "Columnas-wrapper" para que tengan una
+dirección vertical (flex-direction: column) y agrega relleno en la parte superior e inferior.
+También elimina el relleno de los elementos con la clase "Columnas-section" en este tamaño de
+pantalla. Es probable que esto se haga para optimizar el diseño y mejorar la experiencia del usuario
+en pantallas más pequeñas. */
+@media (max-width:885px){
+    .Columnas-wrapper{
+        flex-direction: column;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .Columnas-section{
+        padding-top: 0;
+    }
+}
+/*"Columnas-img" 
+que establece el ancho en 100 %, la altura en 70 % o una altura mínima de 200 px, y establece la visualización en bloque. También agrega
+un margen de 2.5 rem en la parte superior y 0 en los lados. El color de fondo está comentado, por lo
+que no se está utilizando actualmente. */
+.Columnas-img{
+    width:100%;
+    height: 70%;
+    min-height: 200px;
+    /*background-color: aquamarine;*/
+    display:block;
+    margin: 2.5rem 0 0;
+}
+/*"Columnas-h3" 
+que se usa para diseñar un grupo de elementos. La clase usa propiedades de flexbox para alinear horizontalmente los elementos en una
+fila, centrados verticalmente y agrega un espacio de 1.25 rem entre ellos. La clase también
+establece el margen en 30 px en la parte superior y 0 en los lados, y establece el color del texto
+en blanco. */
+.Columnas-h3{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    margin: 30px 0 0;
+    color: white;
+}      
+/*"Columnas-span".
+ Esta clase se usa para diseñar un elemento contenedor que contiene varias columnas. La propiedad "display" se establece en "flex" para
+permitir un diseño flexible de las columnas. La propiedad "flex-flow" se establece en "row nowrap"
+para garantizar que las columnas se muestren en una sola fila sin ajustarse. La propiedad
+"justify-content" se establece en "center" para centrar horizontalmente las columnas dentro del
+contenedor. La propiedad "align-items" se establece en "center" para centrar verticalmente las
+columnas dentro del contenedor.*/
+.Columnas-span{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding-top: 1rem;
+    font-size: 1.5rem;
+}
+/*"Columnas-ul". 
+Establece la propiedad de visualización en flex y especifica que los elementos flexibles deben organizarse en una sola fila.
+También centra los elementos horizontal y verticalmente, establece un espacio entre
+ellos y aplica un margen en la parte superior e inferior del contenedor. Finalmente, agrega un
+efecto de transición a la propiedad transform con una duración de 0.2 segundos y una función de
+aceleración. */
+.Columnas-ul{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    margin: 2.5rem 0 2.5rem;
+    transition: transform .2s ease;
+}
+/*"Rrss-icon"
+Establece el ancho del elemento en 2 em, el color en blanco y agrega un efecto de transición de 0,2 segundos para la
+propiedad de transformación. */
+.Rrss-icon{
+    width: 2em;
+    color: white;
+    transition: transform .2s ease;
+    
+}
+/*MODIFICACION DEL SCROL*/
+/* width */
+::-webkit-scrollbar {
+    width: .625rem;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background:rgb(78, 77, 77);
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background:rgb(248, 102, 4);
+    border-radius: 1rem;
+}
+/*FIN DE LA MODIFICACION DE SCROLL*/  
+  
