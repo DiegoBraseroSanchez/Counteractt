@@ -414,7 +414,7 @@ ease. Además, establece la propiedad de visualización en bloque y aplica una r
 crear una forma de polígono con un borde inclinado en el lado derecho de la imagen. */
 .Columnas-img{
     width:100%;
-    height: 100%;
+    height: auto;
     animation: Columnas-img 1.4s ease;
     /*background-color: aquamarine;*/
     display:block;
