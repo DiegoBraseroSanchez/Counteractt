@@ -356,7 +356,7 @@ la ruta de recorte para crear una forma de polígono para la imagen. */
     left: 0;
     opacity: 0;
     width:100%;
-    height: auto;
+    height: 100%;
     animation: fadeIn 1.4s ease;
     /*background-color: aquamarine;*/
     display:block;
@@ -414,18 +414,18 @@ ease. Además, establece la propiedad de visualización en bloque y aplica una r
 crear una forma de polígono con un borde inclinado en el lado derecho de la imagen. */
 .Columnas-img{
     width:100%;
-    height: auto;
-    animation: fadeIn 1.4s ease;
+    height: 100%;
+    animation: Columnas-img 1.4s ease;
     /*background-color: aquamarine;*/
     display:block;
     clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }
-/*`@keyframes fadeIn`
+/*`@keyframes Columnas-img`
 Define una animación CSS que aumenta gradualmente la opacidad y aplica un efecto
 de desenfoque a un elemento. La animación comienza con una opacidad del 0 % y un desenfoque de 1,25
 rem, y con un 10 % de opacidad aumenta a 1 y el desenfoque se reduce a 0,625 rem. Esta animación se
 usa en la clase `.Columnas-img` para crear un efecto de aparición gradual cuando se carga la imagen. */
-@keyframes fadeIn{
+@keyframes Columnas-img {
     0% {
         opacity: 0;
         filter: blur(1.25rem);

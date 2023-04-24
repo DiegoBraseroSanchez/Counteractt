@@ -598,9 +598,8 @@ propiedad de transformación. */
 .Rrss-icon{
     width: 2em;
     color: white;
-    transition: transform .2s ease;
-    
 }
+
 /*MODIFICACION DEL SCROL*/
 /* width */
 ::-webkit-scrollbar {

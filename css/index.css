@@ -103,7 +103,7 @@ parte superior y establece el color del texto en blanco. */
     margin: auto;
     font-size: 2.5vh;
     font-weight: 600;
-    gap: 1.25rem;
+    gap: 2rem;
     padding-top: 4rem;
     color: white;
 }
@@ -367,7 +367,7 @@ que esta clase se use para diseñar una imagen o un elemento de video en una pá
 }
 /*"Hightlights-h1" 
 que se usa para diseñar un elemento de encabezado. Establece el tamaño de fuente, la transformación del texto, la altura de línea, el
-borde, el margen, la visualización, el flujo flexible y las propiedades de animación para el
+borde, la visualización, el flujo flexible y las propiedades de animación para el
 elemento de título. La propiedad de animación utiliza una animación de fotogramas clave llamada
 "Hightlights-h1" que dura 0,8 segundos y tiene una función de tiempo lineal. */
 .Hightlights-h1{
@@ -375,7 +375,6 @@ elemento de título. La propiedad de animación utiliza una animación de fotogr
     text-transform: uppercase;
     line-height: 4.376rem;
     border-bottom: rgb(249, 121, 2) solid .1563rem;
-    margin: 0 0 4.375rem;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -590,7 +589,7 @@ del texto en blanco. */
 Establece el color del texto en un tono de naranja, establece el tamaño de fuente en un 2,5% de la altura de la ventana gráfica y centra el
 elemento horizontalmente usando la propiedad "margen: automático". */
 .Merch-p{
-    color: rgb(248, 102, 4);;
+    color: rgb(248, 102, 4);
     font-size:2.5vh;
     margin: auto;
 }
