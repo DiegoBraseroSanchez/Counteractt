@@ -1,5 +1,7 @@
 # Counteractt
  Trabajo Final (html,css y js)
+ En estas fotos solo se puede ver la pagina princial
+ Revisa el codigo para ver los demas apartados
  
 ![c1](https://github.com/DiegoBraseroSanchez/Counteractt/assets/129300180/22f36e38-2e96-4324-ab34-66460228307d)
 ![c2](https://github.com/DiegoBraseroSanchez/Counteractt/assets/129300180/bf364994-9432-4b9d-aa2e-f60e7a1031fe)
