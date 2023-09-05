@@ -1,6 +1,6 @@
 # Counteractt
  Trabajo Final (html,css y js)
  
-![Captura de pantalla 2023-09-01 163617](https://github.com/DiegoBraseroSanchez/Counteractt/assets/129300180/93082a0a-8234-408c-a49b-b660f3978e4d)
+![c1](https://github.com/DiegoBraseroSanchez/Counteractt/assets/129300180/22f36e38-2e96-4324-ab34-66460228307d)
 
 Espero que te guste 😁
